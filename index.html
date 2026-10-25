@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        /* Top Logo Banner */
+        .logo-container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        /* Image Slideshow */
+        .slideshow-container {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide-img.active {
+            opacity: 1;
+        }
+
+        /* Content Area */
+        .content-box {
+            width: 100%;
+            max-width: 500px;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .text-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #dddddd;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: #ff0055;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #e0004c;
+        }
+
+        /* Subtle Shake / Wiggle Animation for Affiliate Button */
+        .animated-btn {
+            animation: subtleWiggle 2s infinite ease-in-out;
+            background-color: #00e676;
+            color: #000;
+        }
+
+        .animated-btn:hover {
+            background-color: #00c853;
+        }
+
+        @keyframes subtleWiggle {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+            20%, 40%, 60%, 80% { transform: translateX(3px); }
+        }
+
+        /* Fake Loading Screen Overlay */
+        #loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 15, 15, 0.95);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #loading-screen img {
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 25px;
+        }
+
+        /* Spinner / Buffering Animation */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-left-color: #ff0055;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 16px;
+            color: #cccccc;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Logo Banner -->
+    <div class="logo-container">
+        <img src="yox.webp" alt="Logo Banner">
+    </div>
+
+    <!-- Image Slideshow (2 Seconds Interval) -->
+    <div class="slideshow-container">
+        <img src="yo1.webp" class="slide-img active" alt="Slide 1">
+        <img src="yo2.webp" class="slide-img" alt="Slide 2">
+        <img src="yo3.webp" class="slide-img" alt="Slide 3">
+        <img src="yo4.webp" class="slide-img" alt="Slide 4">
+        <img src="yo5.webp" class="slide-img" alt="Slide 5">
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-box">
+        <!-- Part 1 -->
+        <div id="part1">
+            <p class="text-content">
+                We realize many fake Locanto profiles ask for deposits and never meet their clients. That is why we published this premium platform exclusively for our loyal users.
+            </p>
+            <button class="btn" onclick="showPart2()">NEXT</button>
+        </div>
+
+        <!-- Part 2 (Hidden by default) -->
+        <div id="part2" style="display: none;">
+            <p class="text-content">
+                Try our premium website today. All verified Locanto girls are already listed here. They are looking for secret, genuine fun and casual hookups — not money.
+            </p>
+            <button class="btn animated-btn" onclick="startAffiliateRedirect()">Premium Fuck Now</button>
+        </div>
+    </div>
+
+    <!-- Fake Buffering / Loading Screen -->
+    <div id="loading-screen">
+        <img src="yox.webp" alt="Logo">
+        <div class="spinner"></div>
+        <div class="loading-text">
+            Premium Website Signup Page Loading...<br>Please wait
+        </div>
+    </div>
+
+    <script>
+        // 1. Image Slideshow Logic (Changes every 2 seconds)
+        const slides = document.querySelectorAll('.slide-img');
+        let currentSlide = 0;
+
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 2000);
+
+        // 2. Part Navigation
+        function showPart2() {
+            document.getElementById('part1').style.display = 'none';
+            document.getElementById('part2').style.display = 'block';
+        }
+
+        // 3. Fake Loading and Affiliate Redirect Logic
+        const affiliateURL = "YOUR_AFFILIATE_LINK_HERE"; // <--- আপনার অ্যাফিলিয়েট লিংকটি এখানে বসাবেন
+
+        function startAffiliateRedirect() {
+            // Show loading screen
+            document.getElementById('loading-screen').style.display = 'flex';
+
+            // Wait 3 seconds then redirect
+            setTimeout(() => {
+                window.location.href = affiliateURL;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
