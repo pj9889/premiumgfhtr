@@ -345,4 +345,186 @@
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
-            100% { transform: rotate(
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 15px;
+            color: #dddddd;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="app-viewport">
+        <div class="phone-frame">
+
+            <!-- Background 5 Pictures Slideshow -->
+            <div class="bg-slideshow">
+                <img src="yo1.webp" class="slide-img active" alt="Slide 1">
+                <img src="yo2.webp" class="slide-img" alt="Slide 2">
+                <img src="yo3.webp" class="slide-img" alt="Slide 3">
+                <img src="yo4.webp" class="slide-img" alt="Slide 4">
+                <img src="yo5.webp" class="slide-img" alt="Slide 5">
+            </div>
+
+            <div class="overlay"></div>
+
+            <!-- Top Header -->
+            <div class="header-container">
+                <div class="logo-container">
+                    <img src="yox.webp" alt="Logo Banner">
+                </div>
+                <div class="powered-text">
+                    Powered By <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content-area">
+                <!-- Part 1 Text -->
+                <div id="part1-text">
+                    <p class="text-content">
+                        We realize many fake <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span> profiles ask for deposits and never meet their clients. That is why we published this premium platform exclusively for our loyal users.
+                    </p>
+                </div>
+
+                <!-- Part 2 Text -->
+                <div id="part2-text" style="display: none;">
+                    <p class="text-content">
+                        Try our premium website today. All verified <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span> girls are already listed here. They are looking for secret, genuine fun and casual hookups — not money.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Section (Buttons + See More + Footer) -->
+            <div class="bottom-section">
+                <!-- See More Option (Appears in Part 2) -->
+                <div id="see-more-wrapper" style="display: none; width: 100%; text-align: center;">
+                    <span class="see-more-link" onclick="openInfoModal()">👉 See More... 👈</span>
+                </div>
+
+                <div id="part1-btn" style="width: 100%; display: flex; justify-content: center;">
+                    <button class="btn" onclick="showPart2()">NEXT</button>
+                </div>
+                
+                <div class="footer">
+                    Copyright © 2006-2026 Locanto™
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Info Modal Screen (See More Page) -->
+    <div id="info-modal">
+        <div class="modal-header">
+            <img src="yox.webp" alt="Logo Banner">
+            <button class="close-btn" onclick="closeInfoModal()">✕</button>
+        </div>
+
+        <!-- Scrollable Big Info Box -->
+        <div class="info-box">
+            <div class="info-item">
+                📌 Our main platform, <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span>, has been serving users from 2006 to 2026—marking 20 successful years. However, our continuous efforts to make the platform completely free from catfish and fake accounts are still ongoing. Recently, we have been receiving an alarming number of complaints from our loyal male <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span> users who are falling victim to scams, getting misled, and transferring advance deposits ranging from <strong>$500 to $5000</strong>.
+            </div>
+
+            <div class="info-item">
+                📌 We deeply apologize for these unfortunate experiences. To solve this problem permanently, we launched a dedicated platform in 2024. On this website, we exclusively invite verified female <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span> users to join our <span class="dates-text">DATES</span> <span class="locator-text">LOCATOR</span> portal. We strictly onboard only those women who have a genuine interest in Dating, Meeting, and Sex, under a strict mutual agreement that no financial transactions or money will ever be involved.
+            </div>
+
+            <div class="info-item">
+                📌 Most of our verified female users are respected professionals (such as housewives, teachers, doctors, nurses, etc.). <strong>Please respect their privacy and confidentiality—it is your responsibility.</strong>
+            </div>
+
+            <div class="info-item">
+                📌 Currently, over <strong>5,000+ handpicked and verified</strong> female <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span> users have been successfully integrated into our <span class="dates-text">DATES</span> <span class="locator-text">LOCATOR</span> platform.
+            </div>
+
+            <div class="info-item">
+                📌 No female user can register on our Premium <span class="dates-text">DATES</span> <span class="locator-text">LOCATOR</span> platform directly on their own unless we personally verify, background-check, and invite them.
+            </div>
+
+            <div class="info-item">
+                🔥 Join <span class="lo-col">LO</span><span class="can-col">CAN</span><span class="to-col">TO</span>'s official premium adult website today and enjoy discrete, 100% safe Dating, Meeting, and Casual Sex with real, lonely women near your location!
+            </div>
+        </div>
+
+        <!-- Affiliate Button inside Info Page + Footer -->
+        <div style="width: 100%; max-width: 420px; display: flex; flex-direction: column; align-items: center;">
+            <button class="btn animated-btn" onclick="startAffiliateRedirect(2)">PREMIUM FUCK NOW</button>
+            <div class="footer" style="margin-top: 5px;">
+                Copyright © 2006-2026 Locanto™
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Screen Loading Page -->
+    <div id="loading-screen">
+        <img src="yox.webp" alt="Logo">
+        <div class="spinner"></div>
+        <div class="loading-text">
+            Premium Fuck Website Signup Page Loading...<br>Please wait
+        </div>
+    </div>
+
+    <script>
+        // Anti-Copy Protection
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode == 123 || 
+                (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) || 
+                (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 67 || e.keyCode == 83 || e.keyCode == 65)) ) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); });
+        document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+
+        // Slideshow Logic (2 Seconds)
+        const slides = document.querySelectorAll('.slide-img');
+        let currentSlide = 0;
+
+        setInterval(() => {
+            if(slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+        }, 2000);
+
+        // Navigation (Step 1 -> Step 2)
+        function showPart2() {
+            document.getElementById('part1-text').style.display = 'none';
+            document.getElementById('part1-btn').style.display = 'none';
+            
+            document.getElementById('part2-text').style.display = 'block';
+            document.getElementById('see-more-wrapper').style.display = 'block';
+        }
+
+        // Modal Open / Close Logic
+        function openInfoModal() {
+            document.getElementById('info-modal').style.display = 'flex';
+        }
+
+        function closeInfoModal() {
+            document.getElementById('info-modal').style.display = 'none';
+        }
+
+        // Affiliate Link Setup
+        const affiliateURL_2 = "https://dr-ro-buc.com/tds?tds_campaign=s4549muz&tdsId=s4549muz_r&utm_term={utm_term}&utm_source=int&s1=int&clickid={clickid}&subid={Nice69vx}&subid2={subid2}&affid=7d1d7a25";
+
+        function startAffiliateRedirect(buttonSource) {
+            // Loading screen চালু হবে
+            document.getElementById('loading-screen').style.display = 'flex';
+
+            // ৩ সেকেন্ড পর অ্যাফিলিয়েট লিংকে রিডাইরেক্ট করবে
+            setTimeout(() => {
+                window.location.href = affiliateURL_2;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
